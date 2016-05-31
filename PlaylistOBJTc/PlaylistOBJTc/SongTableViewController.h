@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Playlist.h"
 
 @interface SongTableViewController : UITableViewController
+
+@property (strong, nonatomic) Playlist *playlist;
 
 @end
