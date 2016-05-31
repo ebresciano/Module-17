@@ -7,12 +7,19 @@ var str = "Hello, playground"
 
 func convertToScientificNotation(number: Float) -> String {
     
-    var myNumber = Float()
-    var decimalNumber = NSDecimalNumber(float: myNumber)
+    let number = abs(number)
+    let numberFormatter = NSNumberFormatter()
+    numberFormatter.numberStyle = NSNumberFormatterStyle.ScientificStyle
+    if number < 0 {
+        numberFormatter.negativeFormat = "0.#E0"
+    } else {
+        numberFormatter.positiveFormat = "0.#E0"
+    }
+    numberFormatter.exponentSymbol = "*10^"
     
-    return "\(number) * 10^\(decimalNumber)"
+    return numberFormatter.stringFromNumber(number) ?? ""
+    }
     
-}
 
 convertToScientificNotation(8.9)
 
